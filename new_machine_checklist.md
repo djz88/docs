@@ -4,39 +4,39 @@
   - [Basic stuff](#basic-stuff)  
   - [Miscs](#miscs)  
   - [Security stuff](#security-stuff)  
-- [Webservers](#webservers)
-- [Database servers](#database-servers)
+- [Webservers](#webservers)  
+- [Database servers](#database-servers)  
 
 
 
 ## Common settings
 #### Basic stuff
-* minimal installation
+* minimal installation  
   and add stuff when needed
-* setup networking
+* setup networking  
   if not done during an installation
-* backup
+* backup  
   setup backing-up of important files
-* Raid
+* Raid  
   setup RAID on host or guest to prevent data lost
-* Encryption
+* Encryption  
   setup encryption of a data or disk depending on needs
 
   
 
 #### Miscs
-* /etc/motd
+* /etc/motd  
   describes purpose of the system(webserver, db server) and OPTIONALLY versions
-* profile file
+* profile file  
   should contain some information about the system  
   (usage, space, network stuff, last logged)
-* ntpdate
-  or ntp directly to setup date synchronisation
+* ntpdate/ntp  
+  directly to setup date synchronisation
 * 
 
 
 #### Security stuff
-* debsums/rpm checks
+* debsums/rpm checks  
   which files have been modified compared to default ones(in packages)
 * logcheck  
   server setting - sometimes tweak of files is needed (create separate file is recommended)
@@ -46,7 +46,7 @@
   turn on ssh jails and additional one which fits to system purpose
 * firewall setup  
   default policy for INPUT, FORWARD to DROP (optionally OUTPUT as well and tune ebtables)
-* apparmor/selinux
+* apparmor/selinux  
   enhances "permission" of a applications like what can access/read/write where  
   apparmor has utility to scan a log for desired unconfient application and "create"  
   basic profile (manual check needed)
