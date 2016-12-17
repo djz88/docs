@@ -32,8 +32,12 @@
   (usage, space, network stuff, last logged)
 * ntpdate/ntp  
   directly to setup date synchronisation
-* 
-
+* setup email notification/alert
+* deploy monitoring scritps
+  free space/mail queue/root activity/load/etc.
+* install system monitor things
+  like sysstat, psmisc, iotop, iftop, lsof, fuser
+* adjust rsyslog/systemd configs 
 
 #### Security stuff
 * debsums/rpm checks  
@@ -50,4 +54,5 @@
   enhances "permission" of a applications like what can access/read/write where  
   apparmor has utility to scan a log for desired unconfient application and "create"  
   basic profile (manual check needed)
-*  
+* rootkit hunter
+  for rootkit protection
