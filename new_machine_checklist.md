@@ -56,3 +56,5 @@
   basic profile (manual check needed)
 * rootkit hunter
   for rootkit protection
+* sysctl
+  check values and tweak if needed
