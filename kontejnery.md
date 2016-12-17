@@ -18,6 +18,7 @@ upravena sluzba, ktera pousti kontejnery(aby nemenila uzivatele)
 
 vytvoren symlink - hardcodovana cesta na /var/lib/machines
 ----------------------------------------------------------
+
 lrwxrwxrwx 1 root     root       15 Dec 17 16:30 machines -> /srv/containers
 
 
@@ -25,45 +26,43 @@ lrwxrwxrwx 1 root     root       15 Dec 17 16:30 machines -> /srv/containers
 Poznamky
 ========
 
-* adresar s kontejnery(link z /var/lib/machines)
-
+* adresar s kontejnery(link z /var/lib/machines)  
   /srv/containers
 
 
-* adresar s "OS"
-
+* adresar s "OS"  
   /srv/images
 
 Vytvoreni "rootu"
 =================
 
-* debian/ubuntu deboostrap
+* debian/ubuntu deboostrap  
   debootstrap --variant=minbase stable mumble-new http://deb.debian.org/debian/
 
-  *nutne po nainstalovani pustit konsoli a nainstalovat co je potreba pripadne vytvorit uzivatele + sudo*
+  *nutne po nainstalovani pustit konsoli a nainstalovat co je potreba pripadne vytvorit uzivatele + sudo*  
   systemd-nspawn -D "/srv/containers/mumble"
 
 
 ovladani kontejneru
 ===================
 
-* pusteni kontejneru s prihlasenim do shellu
+* pusteni kontejneru s prihlasenim do shellu  
   systemd-nspawn -D "/srv/containers/mumble"
 
-* boot kontejneru s login prompt
+* boot kontejneru s login prompt  
   systemd-nspawn -bD "/srv/containers/mumble"
 
-* login do konzole
+* login do konzole  
   machinectl login mumble
 
-* pusteni na pozadi
+* pusteni na pozadi  
   machinectl start mumble
 
-* stopnuti kontejneru
+* stopnuti kontejneru  
   machinectl poweroff mumble
 
-* pusteni sluzby(po startu)
+* pusteni sluzby(po startu)  
   systemctl start systemd-nspawn@mumble
 
-* vypnuti sluzby(po startu)
+* vypnuti sluzby(po startu)  
   systemctl stop systemd-nspawn@mumble
