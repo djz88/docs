@@ -1,9 +1,11 @@
-Kernel isolation - Containers
------------------------------
+(Kernel) Isolation - HVM, PV, OS-Virtualization technologies
+============================================================
+In short, this is an introduction and description of the isolation differences between HM, PV and OS-Virtualization technologies.
+Presentation contains short descriptions about mentioned technologies with closer look on OS-level Virtualization (a.k.a. containers). 
 
-Hardware-assisted virtualisation
+Hardware-assisted virtualization
 --------------------------------
-AKA full virtualisation
+AKA full virtualization
 
 - "Completely" separated (OS doesn't know it is virtualized)
   binary translation to trap and virtualize non-virtualized instructions ... emulation
@@ -14,7 +16,7 @@ AKA full virtualisation
 
 Resources in-direct through hypervisor.Novadays PVHVM can be used if OS supports it (Kernel 2.6.32+)
 
-Paravirtualisation
+Paravirtualization
 ------------------
 We can call it as a hybrid of HVM and containers.
 
