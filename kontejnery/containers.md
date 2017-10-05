@@ -1,18 +1,18 @@
-(Kernel) Isolation - HVM, PV, OS-Virtualization technologies
-============================================================
+(Kernel) Isolation - HVM, PV, OS-Virtualization technologies in Linux
+=====================================================================
 In short, this is an introduction and description of the isolation differences between HM, PV and OS-Virtualization technologies.
 Presentation contains short descriptions about mentioned technologies with closer look on OS-level Virtualization (a.k.a. containers). 
 
 Hardware-assisted virtualization
 --------------------------------
-AKA full virtualization
+AKA full virtualization. For example: KVM or Xen
 
-- "Completely" separated (OS doesn't know it is virtualized)
+- Using hypervisor – guests are "completely" separated (OS doesn't know it is virtualized)
   binary translation to trap and virtualize non-virtualized instructions ... emulation
 - Has own bootloder
 - Has own kernel
 - Not modified OS. 
-- Need CPU flags (Intel `vmx` | AMD `svm`)
+- Needs CPU flags (Intel `vmx` | AMD `svm`)
 
 Resources in-direct through hypervisor.Novadays PVHVM can be used if OS supports it (Kernel 2.6.32+)
 
@@ -20,7 +20,7 @@ Paravirtualization
 ------------------
 We can call it as a hybrid of HVM and containers.
 
-- Guest OS has to be aware of the fact it is being paravirtualised.(Kernel 3.0+)
+- Guest OS has to be aware of the fact it is being paravirtualized.(Kernel 3.0+)
   hypervisor provides API to communicate and OS calls it
 - Performance gain (direct access to resources)
 - Faster boot - Can boot kernel directly (no bootloader)
@@ -42,7 +42,7 @@ different "story" but they belong to the same piece of book.
 - Helps with keeping OS clean
 - Easily destroyed   >:P
 
-Difference between virtual machines & containers
+Differences between virtual machines & containers
 ------------------------------------------------
 - VM are "heavier" to setup/start - in general
 - OS boot takes up to minutes (PV/HVM difference)
@@ -53,10 +53,9 @@ Difference between virtual machines & containers
 
 - Lightweight(MiB-"hundreds of MiB")
 - Can be application oriented
-- isolation on a OS level(later on)
-  process tree
+- isolation on an OS level - process tree
 
-Container technologies
+Containers technologies
 ----------------------
 - chroot *1982*
   + partial file system isolation
@@ -88,7 +87,7 @@ Container technologies
   + network isolation
   + partial nested virtualization
   + root isolation (since 1.10)
-- systemd-nspawn
+- systemd-nspawn *2013*
   + file system isolation
   + disk quotas 
   + partial IO limiting (systemd+Cgroups)
@@ -99,8 +98,8 @@ Container technologies
   + root isolation
 
 
-Common basics? Or What are they using to isolate resources.
------------------------------------------------------------
+Common bases? Or What are they using to isolate resources?
+----------------------------------------------------------
 
 *(from docker and lxc)*
 PID namespace—Process identifiers and capabilities
@@ -135,8 +134,8 @@ SYSTEMD-NSPAWN
 
 
 
-When we should/can use containers
----------------------------------
+When to use use containers and when vms
+---------------------------------------
 - testing a new application(from source or the internet)
 - fast deployments - "iso" template for the application(or for whole
   cycle)
