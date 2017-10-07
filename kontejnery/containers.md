@@ -16,7 +16,7 @@ AKA full virtualization. For example: KVM or Xen
 
 Resources in-direct through hypervisor.Novadays PVHVM can be used if OS supports it (Kernel 2.6.32+)
 
-Paravirtualization
+Paravirtualization  > prehodit jako prvni a skoncit pvhvm
 ------------------
 We can call it as a hybrid of HVM and containers.
 
@@ -37,7 +37,7 @@ different "story" but they belong to the same piece of book.
 
 - Sometimes called as *"jail on steroids"*.
 - Containers provide an additional layer of the security by isolating
-  resources(can be used together with apparmor/SELinux)
+  resources(can be used together with apparmor/SELinux)    // k pouziti primo apky
 - Solves issues with shared libraries(multiple versions).
 - Helps with keeping OS clean
 - Easily destroyed   >:P
@@ -102,17 +102,20 @@ Common bases? Or What are they using to isolate resources?
 ----------------------------------------------------------
 
 *(from docker and lxc)*
-PID namespace—Process identifiers and capabilities
-UTS namespace—Host and domain name
-MNT namespace—File system access and structure
-IPC namespace—Process communication over shared memory
-NET namespace—Network access and structure
-USR namespace—User names and identifiers
+* PID namespace - Process identifiers and capabilities
+* UTS namespace - Host and domain name
+* MNT namespace - File system access and structure
+* IPC namespace - Process communication over shared memory
+* NET namespace - Network access and structure
+* USR namespace - User names and identifiers
 - Controls the location of the file system root
 
-cgroups
+* cgroups
 - Resource protection(cpu usage, memory usage)
 
+
+
+<!--
 Docker
 ------
 - using own library or lxc
@@ -131,12 +134,19 @@ LXC with LXD
 
 SYSTEMD-NSPAWN
 --------------
-
+-->
 
 
 When to use use containers and when vms
 ---------------------------------------
-- testing a new application(from source or the internet)
+
+**Virtuals**
+- wider isolation(running in the process, access to resources is filtered/emulated HVM or through api/drivers PV)
+- "sandboxes" for customers
+
+u		*Containers**
+- multiple configuration or different version libraries
+  (testing a new application from source or the internet)
 - fast deployments - "iso" template for the application(or for whole
   cycle)
 
